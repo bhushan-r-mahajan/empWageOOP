@@ -30,10 +30,18 @@ public class empWageOop {
 	public static int wageCalculation () {
 
 		int wagePerHour = 20;
-		int dailyWage = wagePerHour * getEmpHours();
-		System.out.println ("Daily Wage = " + dailyWage);
-		return dailyWage;
+		int sum = 0;
+		int dailyWage = 0;
 
+		for ( int day = 0; day < 20; day++ ) {
+
+			dailyWage = wagePerHour * getEmpHours();
+			System.out.println ("Daily Wage = " + dailyWage);
+			sum = sum + dailyWage;
+
+		}
+			System.out.println ("Total Monthly Wage = " + sum);
+			return dailyWage;
 	}
 
 	public static void main (String[] args) {
