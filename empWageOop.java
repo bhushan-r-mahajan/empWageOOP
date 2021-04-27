@@ -31,17 +31,19 @@ public class empWageOop {
 
 		int wagePerHour = 20;
 		int sum = 0;
-		int dailyWage = 0;
+		int monthlyWage = 0;
+		int day = 0;
+		int totalWorkHours =  0;
 
-		for ( int day = 0; day < 20; day++ ) {
+		while ( day < 20 && totalWorkHours < 100 ) {
 
-			dailyWage = wagePerHour * getEmpHours();
-			System.out.println ("Daily Wage = " + dailyWage);
-			sum = sum + dailyWage;
+			day++;
+			totalWorkHours = totalWorkHours + getEmpHours ();
 
 		}
-			System.out.println ("Total Monthly Wage = " + sum);
-			return dailyWage;
+			monthlyWage = wagePerHour * totalWorkHours;
+			System.out.println ("Total Hours Worked is = " + totalWorkHours + " and Total Monthly Wage = " + monthlyWage);
+			return monthlyWage;
 	}
 
 	public static void main (String[] args) {
