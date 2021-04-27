@@ -3,7 +3,6 @@ public class empWageOop {
 	public static int getEmpAttendance () {
 
 		int attendance = (int) (Math.floor (Math.random () * 10 ) % 3);
-		System.out.println ("Attendance" + attendance);
 		return attendance;
 
 	}
@@ -28,9 +27,18 @@ public class empWageOop {
 
 	}
 
+	public static int wageCalculation () {
+
+		int wagePerHour = 20;
+		int dailyWage = wagePerHour * getEmpHours();
+		System.out.println ("Daily Wage = " + dailyWage);
+		return dailyWage;
+
+	}
+
 	public static void main (String[] args) {
 
 		System.out.println ("Welcome to employee wage builder using OOP");
-		getEmpHours ();
+		wageCalculation ();
 	}
 }
