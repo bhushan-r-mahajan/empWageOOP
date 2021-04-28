@@ -1,13 +1,26 @@
 public class empWageOop {
 
-	public static int getEmpAttendance () {
+private final String company;
+private final int wagePerHour;
+private final int numberOfDays;
+private final int maxHoursPerMonth;
+
+	public empWageOop (String company, int wagePerHour, int numberOfDays, int maxHoursPerMonth) {
+		this.company = company;
+		this.wagePerHour = wagePerHour;
+		this.numberOfDays = numberOfDays;
+		this.maxHoursPerMonth = maxHoursPerMonth;
+
+}
+
+	public int getEmpAttendance () {
 
 		int attendance = (int) (Math.floor (Math.random () * 10 ) % 3);
 		return attendance;
 
 	}
 
-	public static int getEmpHours () {
+	public int getEmpHours () {
 
 		int empHours = 0;
 		switch (getEmpAttendance()) {
@@ -27,28 +40,30 @@ public class empWageOop {
 
 	}
 
-	public static int wageCalculation () {
+	public int wageCalculation () {
 
-		int wagePerHour = 20;
 		int sum = 0;
 		int monthlyWage = 0;
 		int day = 0;
 		int totalWorkHours =  0;
 
-		while ( day < 20 && totalWorkHours < 100 ) {
+		while ( day < numberOfDays && totalWorkHours < maxHoursPerMonth ) {
 
 			day++;
 			totalWorkHours = totalWorkHours + getEmpHours ();
 
 		}
 			monthlyWage = wagePerHour * totalWorkHours;
-			System.out.println ("Total Hours Worked is = " + totalWorkHours + " and Total Monthly Wage = " + monthlyWage);
+			System.out.println ("Company Name is " + company + " Total Hours Worked is = " + totalWorkHours + " and Total Monthly Wage = " + monthlyWage);
 			return monthlyWage;
 	}
 
 	public static void main (String[] args) {
 
 		System.out.println ("Welcome to employee wage builder using OOP");
-		wageCalculation ();
+		empWageOop dmart = new empWageOop ("Dmart", 20, 21, 100);
+		empWageOop reliance = new empWageOop ("Reliance", 25, 25, 120);
+		dmart.wageCalculation ();
+		reliance.wageCalculation ();
 	}
 }
